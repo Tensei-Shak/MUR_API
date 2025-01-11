@@ -1,0 +1,35 @@
+# Python (FastAPI)
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+*.pdb
+*.log
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+*.db
+*.sqlite3
+
+# FastAPI specific
+*.bak
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# dotenv files
+.env
+.env.*
+
+# Logs
+*.log
+
+# Miscellaneous
+*.swp
+*.swo
