@@ -8,7 +8,13 @@ def insert_data(data: Data):
     conn = db.connect(database=DB_NAME)
     cursor = conn.cursor()
     cursor.execute("""
-        INSERT INTO data_moviments (group_id, time, displacement, velocity, acceleration)
+        INSERT INTO data_moviments (
+            group_id, 
+            time, 
+            displacement,
+            velocity,
+            acceleration
+        )
         VALUES (?, ?, ?, ?, ?)
     """, (data.group_id, data.time, data.displacement, data.velocity, data.acceleration))
     conn.commit()

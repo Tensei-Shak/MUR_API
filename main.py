@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware  # Importa el middleware CORS
+from fastapi.middleware.cors import CORSMiddleware  
 from typing import List
 from app.models import Data, DataResponse
 from app.schematics import insert_data, get_all_data, get_data_by_group_id
@@ -7,27 +7,18 @@ from app.database import create_table
 
 create_table()
 
-# Crear la instancia de la app FastAPI
 app = FastAPI(
     title="APIESP32",
     description="API para ESP32",
     version="0.1"
 )
 
-# Lista de orígenes permitidos (ajusta según tu frontend)
-origins = [
-    "http://localhost",
-    "http://localhost:8080",  # Ajusta esto según el puerto de tu frontend
-    "http://192.168.80.12:8082"  # El puerto de tu frontend
-]
-
-# Configura el middleware CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # Permite estos orígenes
+    allow_origins=["*"], 
     allow_credentials=True,
-    allow_methods=["*"],  # Permite cualquier método (GET, POST, etc.)
-    allow_headers=["*"],  # Permite cualquier header
+    allow_methods=["*"], 
+    allow_headers=["*"], 
 )
 
 @app.post('/api/prototype/insert')
